@@ -26,7 +26,7 @@
 
 
   <title>Language Models as Black-Box Optimizers for Vision-Language</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -153,56 +153,336 @@
   <!-- End paper abstract -->
 
 
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Methods Overview</h2>
-        <div id="results-carousel" class="carousel results-carousel">
+  <!-- Method Overview -->
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Methods Overview</h2>
+          <div class="content has-text-justified">
 
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/promptgpt.png" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              Prompting VLMs using chat-based LLMs.
-            </h2>
-          </div>
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/pdfs/promptgpt.pdf" alt="Image illustrating ChatGPT interaction with VLMs"
+                style="width: 850px; height: auto; display: block; margin: 0 auto;">
 
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/dalle3.png" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              Improving text-to-image (T2I) generation using chat-based multimodal LLMs.
-            </h2>
-          </div>
-    
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/dalle3_inversion_new.png" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              Prompt inversion using chat-based multimodal LLMs.
-            </h2>
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                Similar to how human prompt engineers iteratively test and refine prompts, we employ ChatGPT to
+                continuously optimize prompts for vision-language models (VLMs). Our iterative approach assesses the
+                performance of ChatGPT-generated prompts on a few-shot dataset (highlighted in <span
+                  style="color: blue;">blue</span>) and provides feedback (marked in <span
+                  style="color: violet;">violet</span>) to ChatGPT through simple conversations, as depicted in the
+                illustrative figure. This straightforward method delivers state-of-the-art results for one-shot image
+                classification across 11 datasets using CLIP, operated in a black-box manner without accessing model
+                weights, feature embeddings, or output logits. Remarkably, our approach outperforms both white-box
+                methods such as
+                gradient-based continuous prompting (CoOp) and human-engineered prompts in this extremely low-shot
+                scenario. This figure only shows a typical conversation using ChatGPT's web user interface. Our code
+                implementation follows this pattern using the ChatGPT API.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End image carousel -->
+  <!-- End Method Overview -->
 
+
+  <!-- Text-Image generation -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Improving Text-to-Image (T2I) Generation</h2>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/dalle3.png" alt="Image showing DALL-E 3 output" />
+
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; color: #333;">
+                Using chat-based multimodal LLMs, we apply our framework to optimize prompts for the state-of-the-art
+                black-box generative VLM, DALL-E 3, using the multimodal GPT4-V. For complicated user queries that
+                DALL-E 3 may initially fail to generate, we send the generated image (highlighted in <span
+                  style="color: violet;">violet</span>) along with the current prompt to GPT4-V to ask for feedback on
+                improvements (highlighted in <span style="color: red;">red</span>) and then generate a new prompt
+                (highlighted in <span style="color: blue;">blue</span>). We show that such a simple framework is
+                surprisingly effective at correcting DALL-E 3 mistakes on some challenging Winoground text queries
+                that involve action, logical, and spatial reasoning. We open-source our code at <a
+                  href="https://github.com/shihongl1998/LLM-as-a-blackbox-optimizer" target="_blank"
+                  style="color: #0066cc; text-decoration: none;">this link</a>
+                to facilitate future research on AI-driven content generation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Prompt Inversion -->
+
+
+  <!-- Prompt Inversion -->
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Prompt Inversion using Chat-based Multimodal LLMs</h2>
+          <div class="content has-text-justified">
+            <p>
+              Given a user-specified reference (query) image, our framework reverse-engineers the prompt to have DALL-E
+              generate the same object or scene in the query image. This enables users to easily make customizations,
+              such as having the character in a reference image perform various actions or change scenes.
+            </p>
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/dalle3_inversion_new.png" alt="Visualization of Prompt Inversion Process"
+                style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
+
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                We apply our framework to reverse engineer the text prompt to generate the same user-queried image. We
+                send the generated image (highlighted in <span style="color: violet;">violet</span>) along with the
+                original image to GPT4-V to ask for feedback on improvements (highlighted in <span
+                  style="color: red;">red</span>) and then generate a new prompt (highlighted in <span
+                  style="color: blue;">blue</span>).
+              </p>
+            </div>
+
+            <section class="hero is-small">
+              <div class="hero-body">
+                <div class="container">
+                  <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/rhino_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/rhino_initial.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/rhino_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        Create a digital artwork of a stylized, geometric rhinoceros head with a dynamic array of sharp,
+                        crystalline facets in a monochromatic palette of black, white, and gray. The design should
+                        feature intricate shadows and highlights to produce a three-dimensional illusion, with a focus
+                        on accurately representing the creature's contours and muscle structure. Adjust the composition
+                        to show the rhinoceros head from a frontal perspective, ensuring that both the horn and the ears
+                        are symmetrically aligned in the center. Emphasize the geometric nature of the facets by making
+                        them more pronounced and varied in shape, creating a complex mosaic that captures the interplay
+                        of light and shadow. Add a slight glow to the edges of the facets to enhance the
+                        three-dimensional effect and the metallic quality of the artwork. Display the rhinoceros head
+                        against a pitch-black background, with a light source positioned to cast dramatic, high-contrast
+                        illumination that emphasizes its multifaceted texture. Incorporate a subtle reflective sheen on
+                        the surface to suggest a sleek, metallic finish, and ensure the rhinoceros's eye is detailed and
+                        expressive, contributing to the overall lifelike appearance of the artwork.
+                      </h2>
+                    </div>
+
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/orange_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/orange_initial.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/orange_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        A hyper-realistic full slice of an orange with intricate details, including the textured pulp
+                        and clearly defined rind, positioned off-center on a reflective gradient surface transitioning
+                        from white to dark. The orange's juicy texture is accentuated by a dynamic splash of juice, with
+                        droplets captured mid-air, creating an energetic and lively scene. The lighting is dramatic and
+                        contrasting, with a spotlight effect casting a pronounced shadow to one side to enhance the
+                        three-dimensional effect and emphasize the vibrant orange color. Include a clear reflection on
+                        the surface and a small stem attached to the orange slice to underscore the realism and
+                        freshness. Enhance the composition by ensuring the orange slice is angled slightly, with the
+                        splash of juice originating from the lower right side, to add a sense of motion and vitality.
+                      </h2>
+                    </div>
+
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/knight_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/knight_initial.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/knight_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        A medieval knight in full armor stands with a shield, the dark background highlighting his
+                        silhouette against a subtle warm glow. His helmet features a visor with a single vertical slit,
+                        and his armor includes a chainmail coif beneath a segmented plate gorget and articulated plate
+                        gauntlets, with layered plate armor and flared ridged pauldrons. The knight's shield is centered
+                        and bears a detailed, embossed golden fleur-de-lis on a field of weathered steel, surrounded by
+                        rivets. The vibrant orange cloak drapes over both shoulders and behind his back, adding a touch
+                        of regal color to the composition. His stance is grounded and balanced, with his left arm
+                        extended, presenting the shield, and his right hand resting on the pommel of his sword, exuding
+                        a calm and noble demeanor.
+                      </h2>
+                    </div>
+
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/dove_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/dove_initial.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/dove_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        Create a stylized illustration of a dove in flight, with feathers that transition smoothly
+                        through a spectrum of colors including red, orange, yellow, green, blue, indigo, and violet. The
+                        dove's plumage should resemble a dynamic, three-dimensional arrangement of vibrant, overlapping
+                        feathers, giving a sense of movement and freedom. The style should be a fusion of semi-realistic
+                        and digital art, with a focus on vivid colors and a clean, light background that emphasizes the
+                        artwork's lively and spirited nature. Adjust the feather arrangement to be more structured and
+                        flame-like, with the feathers at the tips being more elongated and pointed to enhance the sense
+                        of elegance and flow.
+                      </h2>
+                    </div>
+
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/dino_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/dino_initial.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/dino_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        Create an illustration of a stylized, geometric dinosaur with a textured body in two shades of
+                        green: a lighter green for the main body and a darker green for the spiky plates along its back.
+                        The dinosaur should have a friendly demeanor, with a long, curved tail and a smooth, rounded
+                        head featuring two small, circular white eyes with black pupils. It should stand on two legs
+                        with small, rounded feet, each with three visible toes. The background should be a flat, light
+                        beige color, with a simple, elongated shadow extending to the right of the dinosaur, indicating
+                        a soft light source to the left.
+                      </h2>
+                    </div>
+
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example3_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example3_init.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example3_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        Generate an image of a cartoon-style polar bear with gleefully closed eyes and a wide, toothy
+                        grin, revealing just a hint of its tongue. The bear should look exuberant, standing on its hind
+                        legs with arms open wide as if ready for a hug. The bear's fur should appear extremely soft and
+                        fluffy, with a pronounced blush of rosy pink on both cheeks and belly, enhancing its charm.
+                        Adorn the bear with a cozy, chunky-knit scarf, vibrant red with prominent, horizontal white
+                        stripes, stylishly wrapped around its neck and draping with a dense tassel fringe at the ends.
+                        Situate the bear against a gentle pastel pink backdrop, scattered with delicate, small
+                        snowflakes, conveying the splendor and coziness of festive winter cheer.
+                      </h2>
+                    </div>
+
+                    <div class="item">
+                      <!-- Image container -->
+                      <div class="images-container">
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example5_original.png" alt="1" />
+                          <p class="subtitle-text">User Query</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example5_init.png" alt="2" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example5_final.png" alt="3" />
+                          <p class="subtitle-text">Final Image</p>
+                        </div>
+                      </div>
+                      <h2 class="subtitle has-text-centered">
+                        An anthropomorphic duck standing confidently with hands on hips, styled as a classic film noir
+                        detective. The duck has a calm and cool expression, wearing a tan detective's fedora hat and a
+                        matching double-breasted trench coat, buttoned up, with a broad collar, epaulets, and a belted
+                        waist. The character has a white shirt and a patterned tie with a diagonal stripe design
+                        underneath. The character has orange webbed feet and a large, prominent beak. The lighting is
+                        dramatic, with a strong contrast between light and shadow, creating a focused shadow on the
+                        background that mimics the character's silhouette. The overall color palette is warm with a
+                        gentle light source coming from the side, casting the background in a gradient from warm beige
+                        to shadows, giving the image a mysterious and dramatic appearance.
+                      </h2>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Prompt Inversion -->
 
 
   <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <section class="section hero is-light" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@misc{liu2023language,
-      title={Language Models as Black-Box Optimizers for Vision-Language Models}, 
-      author={Shihong Liu and Samuel Yu and Zhiqiu Lin and Deepak Pathak and Deva Ramanan},
-      year={2023},
-      eprint={2309.05950},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}</code></pre>
+        title={Language Models as Black-Box Optimizers for Vision-Language Models}, 
+        author={Shihong Liu and Zhiqiu Lin and Samuel Yu and Ryan Lee and Tiffany Ling and Deepak Pathak and Deva Ramanan},
+        year={2023},
+        eprint={2309.05950},
+        archivePrefix={arXiv},
+        primaryClass={cs.CL}
+  }</code></pre>
     </div>
   </section>
   <!--End BibTex citation -->
