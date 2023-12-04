@@ -133,5 +133,26 @@ body {
   font-size: smaller;
 }
 
+.images-container {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Align the images vertically */
+  gap: 20px; /* Space between the images */
+}
+
+.image-with-subtitle {
+  text-align: center; /* Center the subtitle below the image */
+}
+
+.image-with-subtitle img {
+  max-width: 100%; /* Adjust the size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.subtitle-text {
+  margin-top: 10px; /* Space between image and subtitle */
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
 
 
