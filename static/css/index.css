@@ -136,7 +136,7 @@ body {
 .images-container {
   display: flex;
   justify-content: center; /* Center the images horizontally */
-/*   align-items: center; /* Align the images vertically */
+  align-items: center; /* Align the images vertically */
   gap: 20px; /* Space between the images */
 }
 
