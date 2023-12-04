@@ -145,7 +145,7 @@ body {
 }
 
 .image-with-subtitle img {
-  max-width: 33%; /* Adjust the size as needed */
+  max-width: 100%; /* Adjust the size as needed */
   height: auto; /* Maintain aspect ratio */
 }
 
