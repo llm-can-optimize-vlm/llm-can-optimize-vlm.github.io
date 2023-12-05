@@ -128,18 +128,18 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Vision-language models (VLMs) pre-trained on web- scale datasets have demonstrated remarkable capabilities
+              Vision-language models (VLMs) pre-trained on webscale datasets have demonstrated remarkable capabilities
               on downstream tasks when fine-tuned with minimal data. However, many VLMs rely on proprietary data and are
-              not open-source, which restricts the use of white-box ap- proaches for fine-tuning. As such, we aim to
-              develop a black- box approach to optimize VLMs through natural language prompts, thereby avoiding the need
-              to access model param- eters, feature embeddings, or even output logits. We pro- pose employing chat-based
+              not open-source, which restricts the use of white-box approaches for fine-tuning. As such, we aim to
+              develop a black-box approach to optimize VLMs through natural language prompts, thereby avoiding the need
+              to access model parameters, feature embeddings, or even output logits. We pro- pose employing chat-based
               LLMs to search for the best text prompt for VLMs. Specifically, we adopt an automatic “hill-climbing”
               procedure that converges to an effective prompt by evaluating the performance of current prompts and
               asking LLMs to refine them based on textual feedback, all within a conversational process without
               human-in-the-loop. In a challenging 1-shot image classification setup, our simple approach surpasses the
               white-box continuous prompting method (CoOp) by an average of 1.5% across 11 datasets including ImageNet.
-              Our approach also outperforms both human-engineered and LLM-generated prompts. We high- light the
-              advantage of conversational feedback that incor- porates both positive and negative prompts, suggesting
+              Our approach also outperforms both human-engineered and LLM-generated prompts. We highlight the
+              advantage of conversational feedback that incorporates both positive and negative prompts, suggesting
               that LLMs can utilize the implicit “gradient” direction in textual feedback for a more efficient search.
               In addition, we find that the text prompts generated through our strategy are not only more interpretable
               but also transfer well across differ- ent VLM architectures in a black-box manner. Lastly, we demonstrate
@@ -194,7 +194,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Improving Text-to-Image (T2I) Generation</h2>
+          <h2 class="title is-3">Optimizing Text-to-Image (T2I) Generation</h2>
           <div class="content has-text-justified">
 
             <div class="item">
@@ -215,6 +215,204 @@
                 to facilitate future research on AI-driven content generation.
               </p>
             </div>
+
+
+            <section class="hero is-small">
+              <div class="hero-body">
+                <div class="container">
+                  <div id="results-carousel" class="carousel results-carousel">
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">The unmasked wrestler
+                          hits the masked wrestler.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/2-1-1.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/2-1-n.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">The person with earrings pays the person without earrings.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/4-1-1.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/4-1-n.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">A bird eats a snake.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/5-1-1.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/5-1-n.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+                 
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">A shorter person is covering the eyes of a taller person.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/308-1-1.png" alt="1" style="width: 1230px;" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/308-1-n.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">There is less milk than orange juice.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example2_init.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example2_final.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">Getting a horse wet.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example6_init.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example6_final.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">Some are parking in a train.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example7_init.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example7_final.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+                    <div class="item">
+
+                      <div class="query-container">
+                        <p class="user-query">The white wall will soon be painted blue.</p>
+                      </div>
+
+                      <!-- Image container -->
+                      <div class="images-container">
+                     
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example8_init.png" alt="1" />
+                          <p class="subtitle-text">Initial Image</p>
+                        </div>
+                        <div class="image-with-subtitle">
+                          <img src="static/images/show_example8_final.png" alt="2" />
+                          <p class="subtitle-text">Optimized Image</p>
+                        </div>
+                    
+                      </div>
+
+                    </div>
+
+                    
+
+       
+
+
+              
+
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -455,9 +653,6 @@
                         to shadows, giving the image a mysterious and dramatic appearance.
                       </h2>
                     </div>
-
-
-
                   </div>
                 </div>
               </div>
@@ -470,6 +665,114 @@
   </section>
   <!-- End Prompt Inversion -->
 
+  <!-- Quantitative Results -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Comparison of our method with other baselines on one-shot classification tasks.</h2>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/table.png" alt="Image showing DALL-E 3 output" />
+
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; color: #333;">
+                We report the average accuracy of each method across three folds, optimized using 1-shot training sets.
+                We bold the best black-box result for each dataset, and underline the second best result. First, we note
+                that our approach can effectively improve upon the initial prompts selected from LAIONCOCO-1M from 56%
+                to 61%. Our approach is also competitive against the best Human-Engineered prompts released by OpenAI
+                searched using test set performance. Additionally, we show that using both positive and negative
+                prompts improves the overall accuracy by 1%. For reference, we report oracle white-box approaches in
+                gray. Remarkably, we also surpass white-box solutions such as WiSE-FT and CoOp by 1.5%. These
+                methods require either gradient-based fine-tuning (CoOp/WiSE-FT/Cross-Modal) or prompt ensembling using
+                output logits (DCLIP). While our approach is less effective than the SOTA white-box method (Cross-Modal
+                Adaptation), we stress that our black-box setup is significantly more challenging, because we restrict
+                the optimization space to natural language and do not access the pre-trained weights, model
+                architectures, feature embeddings, and output logits of VLMs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Quantitative Results -->
+
+  <!-- Qualitative Results -->
+  <section class="section hero is-light2">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Example resulting templates on each dataset.</h2>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+
+              <table>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Example of Top Templates</th>
+                </tr>
+                <tr>
+                  <td>Caltech </td>
+                  <td>An image of a {} with a <strong>blurred</strong> background that emphasizes the subject</td>
+                </tr>
+                <tr>
+                  <td>DTD </td>
+                  <td>The essential elements of {} are <strong>amplified with visual simplicity</strong></td>
+                </tr>
+                <tr>
+                  <td>EuroSAT</td>
+                  <td>A <strong>top-down</strong> view of {} arranged in a pattern {}</td>
+                </tr>
+                <tr>
+                  <td>Aircraft</td>
+                  <td>A clear, high-quality image of a single {} with a <strong>white background</strong> </td>
+                </tr>
+                <tr>
+                  <td>Food</td>
+                  <td>A {} featuring diverse <strong>cuisine</strong> and ingredients</td>
+                </tr>
+                <tr>
+                  <td>ImageNet</td>
+                  <td>An image of a {} with bright and <strong>natural lighting</strong></td>
+                </tr>
+                <tr>
+                  <td>Flowers</td>
+                  <td>A clear and <strong>vivid</strong> photograph of the {} in its <strong>natural setting</strong></td>
+                </tr>
+                <tr>
+                  <td>Pets</td>
+                  <td>A {} with distinct and <strong>recognizable</strong> characteristics</td>
+                </tr>
+                <tr>
+                  <td>Cars</td>
+                  <td>A {} featuring a wide range of <strong>color options</strong> for easy selection</td>
+                </tr>
+                <tr>
+                  <td>SUN</td>
+                  <td>A high-resolution photo of a {} with clear background and natural <strong>lighting</strong></td>
+                </tr>
+                <tr>
+                  <td>UCF</td>
+                  <td>A black and white photo of a {} <strong>in motion</strong></td>
+                </tr>
+              </table>
+
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; color: #333;">
+                Although we do not provide ChatGPT with any information regarding the targeted dataset, we observe that
+                the resulting templates are remarkably similar to human-engineered templates, with many domain-specific
+                details such as “motion” and “cuisine”, and stylistic elements such as “bright and natural lighting”.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Qualitative Results -->
 
   <!--BibTex citation -->
   <section class="section hero is-light" id="BibTeX">
