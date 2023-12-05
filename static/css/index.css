@@ -133,10 +133,20 @@ body {
   font-size: smaller;
 }
 
+.user-query {
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optional: if you want the query to stand out */
+}
+
+.query-container {
+  text-align: center; /* Center the user query text */
+  margin-bottom: 20px; /* Space between the query and the images */
+}
+
 .images-container {
   display: flex;
   justify-content: center; /* Center the images horizontally */
-  align-items: center; /* Align the images vertically */
+ 
   gap: 20px; /* Space between the images */
 }
 
@@ -152,6 +162,13 @@ body {
 .subtitle-text {
   margin-top: 10px; /* Space between image and subtitle */
   font-size: 14px; /* Adjust the font size as needed */
+}
+
+/* Ensure the section subtitle is visible */
+.subtitle {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px; /* Adjust as needed */
 }
 
 
